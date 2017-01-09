@@ -1,0 +1,14 @@
+{
+  "en": {
+    "title": "hello, my name is",
+    "name": "Gabor",
+    "text": "I build websites on a daily basis",
+    "link": "if you're interested, write me a mail"
+  },
+  "hu": {
+    "title": "üdv, a nevem",
+    "name": "Gábor",
+    "text": "weblapokat készítek",
+    "link": "ha érdekel, írj egy emailt"
+  }
+}

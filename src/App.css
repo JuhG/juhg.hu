@@ -1,0 +1,50 @@
+.App {
+  padding: 5vh 5vw;
+}
+.App-title {
+  font-size: 50px;
+  padding: 1vmin;
+}
+.App-name {
+  font-size: 60px;
+}
+.App-text {
+  padding: 1vmin;
+}
+
+@media (min-width: 750px) {
+  .App-header {
+    display: flex;
+    align-items: baseline;
+  }
+}
+
+@media (max-width: 750px) {
+  body {
+    font-size: 20px;
+  }
+  .App-title {
+    font-size: 30px;
+  }
+  .App-name {
+    font-size: 40px;
+    margin-bottom: 5vmin;
+  }
+}
+
+.language-switcher {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  padding: 5vh 5vw;
+  background-color: #F0F0F0;
+}
+
+.language-switcher > * {
+  padding: 1vmin;
+}
+
+.language-switcher .active {
+  font-weight: bold;
+}
