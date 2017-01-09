@@ -5,14 +5,18 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
+    let locale = (navigator.languages && navigator.languages[0]) ||
+      navigator.language ||
+      navigator.userLanguage;
+    let language = locale.indexOf('hu-') < 0 ? 'en' : 'hu';
     this.state = {
-      language: localStorage.getItem('language') || 'en'
+      language: (localStorage && localStorage.getItem('language')) || language || 'en',
     }
   }
   setLanguage(e) {
     e.preventDefault();
     let language = e.target.id;
-    localStorage.setItem('language', language)
+    localStorage && localStorage.setItem('language', language);
     this.setState({language: language});
   }
   render() {
