@@ -1,12 +1,56 @@
 {
   "en": {
+    "title": "Gabor Juhasz",
     "header": "hello, my name is Gabor",
-    "text": "I build websites on a daily basis",
-    "link": "if you're interested, write me a mail"
+    "texts": [
+      "I build websites on a daily basis",
+      "if you're interested,"
+    ],
+    "link": "write me a mail",
+    "menus": [
+      {
+        "name": "home",
+        "path": "/"
+      },
+      {
+        "name": "resume",
+        "path": "/resume"
+      },
+      {
+        "name": "projects",
+        "path": "/projects"
+      },
+      {
+        "name": "blog",
+        "path": "https://blog.juhg.hu"
+      }
+    ]
   },
   "hu": {
+    "title": "Juhász Gábor",
     "header": "üdv, a nevem Gábor",
-    "text": "weblapokat készítek",
-    "link": "ha érdekel, írj egy emailt"
+    "texts": [
+      "weblapokat készítek",
+      "ha érdekel,"
+    ],
+    "link": "írj egy emailt",
+    "menus": [
+      {
+        "name": "kezdés",
+        "path": "/"
+      },
+      {
+        "name": "resume",
+        "path": "/resume"
+      },
+      {
+        "name": "projektek",
+        "path": "/projects"
+      },
+      {
+        "name": "blog",
+        "path": "https://blog.juhg.hu"
+      }
+    ]
   }
 }
