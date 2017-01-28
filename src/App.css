@@ -48,3 +48,11 @@
 .language-switcher a.active:after {
   height: 5px;
 }
+@media (max-width: 750px) {
+  .language-switcher .separator {
+    margin-top: 2vmax;
+  }
+  .language-switcher a {
+    padding: 2vmax;
+  }
+}
