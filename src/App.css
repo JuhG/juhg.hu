@@ -5,9 +5,6 @@
   font-size: 50px;
   padding: 1vmin;
 }
-.App-name {
-  font-size: 60px;
-}
 .App-text {
   padding: 1vmin;
 }
@@ -26,10 +23,6 @@
   .App-title {
     font-size: 30px;
   }
-  .App-name {
-    font-size: 40px;
-    margin-bottom: 5vmin;
-  }
 }
 
 .language-switcher {
@@ -38,7 +31,7 @@
   right: 0;
   display: flex;
   padding: 5vh 5vw;
-  background-color: #F0F0F0;
+  background-color: #2d3038;
 }
 
 .language-switcher > * {

@@ -10,8 +10,8 @@ h1 {
 }
 
 body {
-  background-color: #F0F0F0;
-  color: #333333;
+  background-color: #2d3038;
+  color: #eeeeee;
   font-weight: 300;
 }
 
@@ -23,7 +23,7 @@ body {
 
 a {
   position: static;
-  color: #F11;
+  color: #06cbf6;
   text-decoration: none;
 }
 

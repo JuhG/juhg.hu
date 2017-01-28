@@ -5,10 +5,8 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    let locale = (navigator.languages && navigator.languages[0]) ||
-      navigator.language ||
-      navigator.userLanguage;
-    let language = locale.indexOf('hu-') < 0 ? 'en' : 'hu';
+    let locale = navigator.language || navigator.userLanguage;
+    let language = locale.toLowerCase().indexOf('hu') < 0 ? 'en' : 'hu';
     this.state = {
       language: (localStorage && localStorage.getItem('language')) || language || 'en',
     }
@@ -24,8 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <p className="App-title">{text.title}</p>
-          <h1 className="App-title App-name">{text.name}</h1>
+          <h1 className="App-title">{text.header}</h1>
         </div>
         <p className="App-text">{text.text}</p>
         <p className="App-text">
