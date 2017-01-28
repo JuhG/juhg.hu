@@ -1,18 +1,16 @@
 import React from 'react';
 
 const Home = ({ text }) => {
-	return(
-		<div>
+	return (
+		<div className="Home">
 
-			<div className="App-header">
-			  <h1 className="App-title">{text.header}</h1>
-			</div>
+		  <h1>{text.home.header}</h1>
 
-			{text.texts.map(t => <p key={t} className="App-text">{t}</p>)}
+			{text.home.texts.map(t => <p key={t} className="App-text">{t}</p>)}
 			
 			<p className="App-text">
 			  <a href="mailto:me@juhg.hu">
-			    {text.link}
+			    {text.home.link}
 			  </a>
 			</p>
 

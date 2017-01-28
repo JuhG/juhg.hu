@@ -20,15 +20,17 @@
 		top: initial;
 		bottom: 0;
 		left: 0;
+  	background-color: #2d3038;
 	}
 	.menu-item {
 		width: auto;
+		padding: 2vw 0;
 	}
 }
 
 .menu-item:before {
 	content: '';
-	background-color: #06cbf6;
+	background-color: #eeeeee;
 	top: 50%;
 	height: 10px;
 	margin-top: -5px;
@@ -68,4 +70,11 @@
 		margin-top: -10px;
 		width: 5px;
 	}
+}
+
+@media (max-width: 500px) {
+	.menu {
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+  }
 }

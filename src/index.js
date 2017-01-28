@@ -5,7 +5,7 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import App from './App';
 
 import Home from './Home';
-import Resume from './Resume';
+import About from './About';
 import Projects from './Projects';
 
 import './index.css';
@@ -14,7 +14,7 @@ ReactDOM.render(
 	<Router history={browserHistory}>
   	<Route path="/" component={App}>
   		<IndexRoute component={Home} />
-  		<Route path="/resume" component={Resume} />
+  		<Route path="/about" component={About} />
   		<Route path="/projects" component={Projects} />
     	<Route path="*" component={Home} />
   	</Route>
