@@ -1,21 +1,59 @@
-import React from "react"
-import { Link } from "gatsby"
+import { graphql } from 'gatsby'
+import { remarkForm } from 'gatsby-tinacms-remark'
+import React from 'react'
+import Layout from '../components/layout'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-
-const IndexPage = () => (
+const Home = ({ data }) => (
   <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
+    <div
+      style={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
+      <div
+        className="dd-editor"
+        dangerouslySetInnerHTML={{ __html: data.page.html }}
+      />
+
+      <h2>Stuff I did</h2>
+
+      {data.portfolio.nodes.map(node => (
+        <article>
+          <h3>{node.frontmatter.title}</h3>
+          <div
+            className="dd-editor"
+            dangerouslySetInnerHTML={{ __html: node.html }}
+          />
+        </article>
+      ))}
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
 
-export default IndexPage
+export const QUERY = graphql`
+  query {
+    page: markdownRemark(frontmatter: { slug: { eq: "home" } }) {
+      frontmatter {
+        title
+      }
+      html
+      ...TinaRemark
+    }
+    portfolio: allMarkdownRemark(
+      sort: { order: DESC, fields: frontmatter___priority }
+      filter: { fileAbsolutePath: { glob: "**/portfolio/*" } }
+    ) {
+      nodes {
+        frontmatter {
+          title
+        }
+        html
+      }
+    }
+  }
+`
+
+export default remarkForm(Home, { queryName: 'page' })

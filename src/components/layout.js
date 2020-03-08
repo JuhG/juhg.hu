@@ -1,16 +1,10 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "./layout.css"
+import { graphql, useStaticQuery } from 'gatsby'
+import { RemarkCreatorPlugin } from 'gatsby-tinacms-remark'
+import React from 'react'
+import Helmet from 'react-helmet'
+import { withPlugin } from 'tinacms'
+import '../css/tailwind.css'
+import Header from './header'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,27 +19,37 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/css?family=Space+Mono:400,700&display=swap"
+          rel="stylesheet"
+        />
+      </Helmet>
+
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
+
+      <div className="dd-content">
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
     </>
   )
 }
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
+const CreatePostPlugin = new RemarkCreatorPlugin({
+  label: 'New Blog Post',
+  filename: form => {
+    return form.filename
+  },
+  fields: [
+    {
+      name: 'filename',
+      component: 'text',
+      label: 'Filename',
+      placeholder: 'content/blog/hello-world/index.md',
+      description:
+        'The full path to the new Markdown file, relative to the repository root.',
+    },
+  ],
+})
 
-export default Layout
+export default withPlugin(Layout, CreatePostPlugin)
