@@ -1,44 +1,86 @@
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import { remarkForm } from 'gatsby-tinacms-remark'
-import React from 'react'
+import React, { useState } from 'react'
 import slugify from 'slugify'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-const Home = ({ data }) => (
-  <Layout>
-    <SEO />
+const Home = ({ data }) => {
+  const [text, setText] = useState({
+    state: 'INITIAL',
+    content: data.page.html.split('<!--more-->')[0],
+  })
+  const [portfolio, setPortfolio] = useState({
+    state: 'INITIAL',
+    content: data.portfolio.nodes.slice(0, 3),
+  })
 
-    <div className="dd-editor">
-      <div>
-        <Img
-          className="sm:float-left sm:mr-8 sm:mb-8"
-          fixed={data.file.childImageSharp.fixed}
-        />
-        <div dangerouslySetInnerHTML={{ __html: data.page.html }} />
+  return (
+    <Layout>
+      <SEO />
+
+      <div className="dd-editor flex flex-col">
+        <div>
+          <Img
+            className="sm:mt-8 dd-image sm:float-left sm:mr-8 sm:mb-4"
+            fixed={data.file.childImageSharp.fixed}
+            alt="Gábor Juhász"
+            imgStyle={{ width: '100%', objectFit: 'contain' }}
+            placeholderStyle={{ opacity: 0 }}
+          />
+          <div dangerouslySetInnerHTML={{ __html: text.content }} />
+          {'LOADED' !== text.state && (
+            <button
+              className="dd-button"
+              onClick={() => {
+                setText({ state: 'LOADED', content: data.page.html })
+              }}
+            >
+              Read more
+            </button>
+          )}
+
+          <div className="mt-8 mb-4 p-3 bg-gray-100 rounded">
+            <span role="img" aria-labelledby="mailbox">
+              📮
+            </span>
+            <span> You can contact me at </span>
+            <a href="mailto:gabor@dromedar.design">gabor@dromedar.design</a>
+          </div>
+        </div>
+
+        <div className="clear-both">
+          <h2>Stuff I did</h2>
+
+          {portfolio.content.map(node => (
+            <article key={slugify(node.frontmatter.title)}>
+              <h3>{node.frontmatter.title}</h3>
+              <div dangerouslySetInnerHTML={{ __html: node.html }} />
+              <hr />
+            </article>
+          ))}
+
+          {'LOADED' !== portfolio.state && (
+            <button
+              className="dd-button mb-8"
+              onClick={() => {
+                setPortfolio({ state: 'LOADED', content: data.portfolio.nodes })
+              }}
+            >
+              Show more
+            </button>
+          )}
+        </div>
       </div>
-
-      <div className="pt-8 clear-both">
-        <h2>Stuff I did</h2>
-
-        {data.portfolio.nodes.map(node => (
-          <article key={slugify(node.frontmatter.title)}>
-            <h3>{node.frontmatter.title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: node.html }} />
-            <hr />
-          </article>
-        ))}
-      </div>
-    </div>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export const QUERY = graphql`
   query {
     file(name: { eq: "gabor" }) {
       childImageSharp {
-        fixed(width: 200) {
+        fixed(width: 250) {
           ...GatsbyImageSharpFixed
         }
       }
@@ -48,7 +90,6 @@ export const QUERY = graphql`
         title
       }
       html
-      ...TinaRemark
     }
     portfolio: allMarkdownRemark(
       sort: { order: DESC, fields: frontmatter___priority }
@@ -57,7 +98,6 @@ export const QUERY = graphql`
       nodes {
         frontmatter {
           title
-          priority
         }
         html
       }
@@ -65,4 +105,4 @@ export const QUERY = graphql`
   }
 `
 
-export default remarkForm(Home, { queryName: 'page' })
+export default Home

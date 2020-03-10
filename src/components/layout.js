@@ -1,9 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import { RemarkCreatorPlugin } from 'gatsby-tinacms-remark'
 import React from 'react'
 import Helmet from 'react-helmet'
-import slugify from 'slugify'
-import { withPlugin } from 'tinacms'
 import '../css/tailwind.css'
 import Header from './header'
 
@@ -27,29 +24,19 @@ const Layout = ({ children }) => {
         />
       </Helmet>
 
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <div className="min-h-screen flex flex-col items-stretch">
+        <Header siteTitle={data.site.siteMetadata.title} />
 
-      <div className="dd-content">
-        <main>{children}</main>
+        <div className="flex-1">
+          <main className="dd-content">{children}</main>
+        </div>
+
+        <footer className="my-16">
+          <div className="dd-content">Designed by Dromedar</div>
+        </footer>
       </div>
     </>
   )
 }
 
-const CreatePostPlugin = new RemarkCreatorPlugin({
-  label: 'New Portfolio',
-  fields: [
-    { name: 'title', component: 'text', required: true },
-    { name: 'priority', component: 'number' },
-    { name: 'body', component: 'markdown', required: true },
-  ],
-  filename: form =>
-    `content/portfolio/${slugify(form.title, { lower: true })}.md`,
-  frontmatter: form => ({
-    title: form.title,
-    priority: form.priority || 50,
-  }),
-  body: form => form.body,
-})
-
-export default withPlugin(Layout, CreatePostPlugin)
+export default Layout
