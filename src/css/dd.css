@@ -56,8 +56,8 @@ body {
 
   hr {
     @apply mt-4 mb-8 border-b-2;
-    opacity: 20%;
     border-color: var(--c1);
+    opacity: 0.2;
   }
 
   a {
