@@ -44,12 +44,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Personal space of Gábor Juhász`,
+        short_name: `JuhG`,
         start_url: `/`,
         background_color: `#e06900`,
         theme_color: `#e06900`,
-        display: `minimal-ui`,
+        display: `browser`,
         icon: `src/images/icon.png`,
       },
     },
