@@ -64,10 +64,14 @@ body {
     @apply font-bold;
     color: var(--c1);
   }
+
+  code {
+    @apply bg-gray-100 px-2 py-1;
+  }
 }
 
 .dd-content {
-  @apply px-4 max-w-4xl mx-auto;
+  @apply px-4 max-w-3xl mx-auto;
 
   @screen sm {
     @apply px-8;

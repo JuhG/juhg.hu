@@ -7,12 +7,14 @@ slug: home
 
 👋 Hello, my name is **Gábor**. I'm a web developer from Kecskemét, Hungary.
 
-I'm a full stack developer, but I like to work on the front end the most, specifically with React and the ecosystem: Gatsby, Next and stuff.
+I've been building websites **since 2014**. Most of that time I was responsible for the whole spectrum so I have a great understanding of the big picture.
 
-I <a href="https://workshop.dromedar.design/" target="_blank">teach locally</a> the basics of programming and love the open source nature of the web.
+Lately my choice of stack is always based on **React**, both the syntax and the ecosystem help to make it super easy to be productive. Frameworks like Gatsby, Next.js (and the JAM-stack in general) finally bridge the gap between UX, DX and content editing.
 
 <!--more-->
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam laborum voluptatem libero quas ullam harum voluptas consequuntur asperiores, impedit earum modi sit itaque quia cumque. Culpa consequuntur necessitatibus cum voluptate.
+On the server I have the most experience with Laravel and Node. For testing I think Jest's watch mode is the best and Cypress is amazing. For bigger projects I prefer Typescript. I used to style things with SCSS, but Tailwind converted me completely.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam laborum voluptatem libero quas ullam harum voluptas consequuntur asperiores, impedit earum modi sit itaque quia cumque. Culpa consequuntur necessitatibus cum voluptate.
+I occasionally
+[teach locally](https://workshop.dromedar.design/)
+the basics of programming. Love the open source nature of the web. Outside of programming I like hiking and riding the bike, playing board games, drinking beer with friends and watching Netflix with my wife.

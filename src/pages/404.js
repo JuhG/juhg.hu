@@ -6,7 +6,7 @@ const NotFoundPage = () => {
   const gif = useRef()
   return (
     <Layout>
-      <SEO title="404: Not found" />
+      <SEO title="404" description="Page not found" />
 
       <div className="dd-editor">
         <h1>NOT FOUND</h1>

@@ -45,7 +45,9 @@ const Home = ({ data }) => {
               📮
             </span>
             <span> You can contact me at </span>
-            <a href="mailto:gabor@dromedar.design">gabor@dromedar.design</a>
+            <a href={`mailto:${data.site.siteMetadata.email}`}>
+              {data.site.siteMetadata.email}
+            </a>
           </div>
         </div>
 
@@ -78,6 +80,11 @@ const Home = ({ data }) => {
 
 export const QUERY = graphql`
   query {
+    site {
+      siteMetadata {
+        email
+      }
+    }
     file(name: { eq: "gabor" }) {
       childImageSharp {
         fixed(width: 250) {

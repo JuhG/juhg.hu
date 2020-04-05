@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Personal space of Gábor Juhász`,
-    description: ``,
-    author: `@juhgabor`,
+    title: 'Personal space of Gábor Juhász',
+    description:
+      'An always curious full-stack web developer focused on React and UX 💻',
+    email: 'me@juhg.hu',
+    author: '@juhgabor',
   },
   plugins: [
     {
@@ -45,10 +47,10 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#e06900`,
+        theme_color: `#e06900`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`,
       },
     },
     {
@@ -59,17 +61,13 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
               maxWidth: 1920,
             },
           },
+          'gatsby-remark-external-links',
         ],
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
