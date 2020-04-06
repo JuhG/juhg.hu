@@ -69,5 +69,14 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-83863844-4',
+        head: false,
+        anonymize: true,
+      },
+    },
+    `gatsby-plugin-netlify`,
   ],
 }
