@@ -52,7 +52,7 @@ const Home = ({ data }) => {
         </div>
 
         <div className="clear-both">
-          <h2>Stuff I did</h2>
+          <h2>Stuff I made</h2>
 
           {portfolio.content.map(node => (
             <article key={slugify(node.frontmatter.title)}>

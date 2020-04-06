@@ -10,6 +10,7 @@ I think `useContext` has great potential. It's super simple way to have the supe
 Technologies used:
 [Gatsby](https://www.gatsbyjs.org/),
 [Prismic](https://prismic.io/),
+[Tailwind](https://tailwindcss.com/),
 [Netlify](https://www.netlify.com/)
 
 [Live site](https://klingenland.at/)

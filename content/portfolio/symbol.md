@@ -7,6 +7,7 @@ This is an e-commerce selling managed tours in Mallorca. The interesting part wa
 
 Technologies used:
 [Laravel](https://laravel.com/),
-[Vue.js](https://vuejs.org/)
+[Vue.js](https://vuejs.org/),
+[Tailwind](https://tailwindcss.com/)
 
 [Live site](https://test.symboltravel.com/filter)
