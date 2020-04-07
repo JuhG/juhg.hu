@@ -22,6 +22,7 @@ module.exports = {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         tailwind: true,
+        purgeOnly: ['/src/css/tailwind.css'],
       },
     },
     `gatsby-plugin-react-helmet`,

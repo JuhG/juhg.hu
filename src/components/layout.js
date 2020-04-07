@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import '../css/dd.css'
 import '../css/tailwind.css'
 import Header from './header'
 
