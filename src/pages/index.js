@@ -44,7 +44,7 @@ const Home = ({ data }) => {
             <span role="img" aria-labelledby="mailbox">
               📮
             </span>
-            <span> You can contact me at </span>
+            <span> You can reach me at </span>
             <a href={`mailto:${data.site.siteMetadata.email}`}>
               {data.site.siteMetadata.email}
             </a>
