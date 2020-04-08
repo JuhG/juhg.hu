@@ -5,7 +5,7 @@ title: Forum
 
 This is a work in progress project for building my custom forum system.
 Part of the motivation was playing around with data fetching and testing in Next.
-I can safely say I like it a lot. I've used FaunaDB for storing the data and build a quick wrapper around it.
+I can safely say I like it a lot. I've used FaunaDB for storing the data and built a quick wrapper around it.
 
 For testing I've made a mock version of the wrapper for super quick integration tests, but on commit I always run the actual version of it (in a test database) to check if there's a regression in the mock version. Now that the api endpoints are stable I'm in the process of building the UI with "Cypress Driven Development".
 

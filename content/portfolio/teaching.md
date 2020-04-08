@@ -12,4 +12,4 @@ Since then a
 [meetup presentation](https://github.com/dromedar-design/presentation-gatsby)
 and a
 [few video tutorials](https://github.com/dromedar-design/tutorial-gatsby-blog)
-are also in the works. I guess the simplicity of Gatsby gave me an inspiration. :)
+are also in the works. I guess the simplicity of Gatsby gave me inspiration. :)
