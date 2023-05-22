@@ -1,20 +1,10 @@
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import React, { useState } from 'react'
-import slugify from 'slugify'
+import React from 'react'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
 const Home = ({ data }) => {
-  const [text, setText] = useState({
-    state: 'INITIAL',
-    content: data.page.html.split('<!--more-->')[0],
-  })
-  const [portfolio, setPortfolio] = useState({
-    state: 'INITIAL',
-    content: data.portfolio.nodes.slice(0, 3),
-  })
-
   return (
     <Layout>
       <SEO />
@@ -28,17 +18,7 @@ const Home = ({ data }) => {
             imgStyle={{ width: '100%', objectFit: 'contain' }}
             placeholderStyle={{ opacity: 0 }}
           />
-          <div dangerouslySetInnerHTML={{ __html: text.content }} />
-          {'LOADED' !== text.state && (
-            <button
-              className="dd-button"
-              onClick={() => {
-                setText({ state: 'LOADED', content: data.page.html })
-              }}
-            >
-              Read more
-            </button>
-          )}
+          <div dangerouslySetInnerHTML={{ __html: data.page.html }} />
 
           <div className="mt-8 mb-4 p-3 bg-gray-100 rounded">
             <span role="img" aria-labelledby="mailbox">
@@ -49,29 +29,6 @@ const Home = ({ data }) => {
               {data.site.siteMetadata.email}
             </a>
           </div>
-        </div>
-
-        <div className="clear-both">
-          <h2>Stuff I've made</h2>
-
-          {portfolio.content.map(node => (
-            <article key={slugify(node.frontmatter.title)}>
-              <h3>{node.frontmatter.title}</h3>
-              <div dangerouslySetInnerHTML={{ __html: node.html }} />
-              <hr />
-            </article>
-          ))}
-
-          {'LOADED' !== portfolio.state && (
-            <button
-              className="dd-button mb-8"
-              onClick={() => {
-                setPortfolio({ state: 'LOADED', content: data.portfolio.nodes })
-              }}
-            >
-              Show more
-            </button>
-          )}
         </div>
       </div>
     </Layout>
@@ -97,17 +54,6 @@ export const QUERY = graphql`
         title
       }
       html
-    }
-    portfolio: allMarkdownRemark(
-      sort: { order: DESC, fields: frontmatter___priority }
-      filter: { fileAbsolutePath: { glob: "**/portfolio/*" } }
-    ) {
-      nodes {
-        frontmatter {
-          title
-        }
-        html
-      }
     }
   }
 `
