@@ -9,6 +9,6 @@ slug: home
 
 I've been building websites **since 2014**. Lately my choice of stack is always based on **React**, the syntax stole my heart and the ecosystem is just unmatched.
 
-In my spare time I'm usually looking for the Laravel equivalent in Typescript land and enjoying a good Tailwind.
+In my spare time I'm usually looking for the Laravel equivalent in Typescript and enjoying a good Tailwind.
 
-When I'm not looking at the screen, I'm probably playing with my two boys and or brewing my own beer.
+When I'm not looking at the screen, I'm probably playing with my two boys or brewing my own beer.
