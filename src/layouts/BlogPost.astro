@@ -1,19 +1,19 @@
 ---
-import Template from "../components/Template.astro";
+  import Template from "src/layouts/Template.astro";
 
-export interface Props {
-  content: {
-    title: string;
-    description: string;
-    pubDate?: string;
-    updatedDate?: string;
-    heroImage?: string;
-  };
-}
+  export interface Props {
+    content: {
+      title: string;
+      description: string;
+      pubDate?: string;
+      updatedDate?: string;
+      heroImage?: string;
+    };
+  }
 
-const {
-  content: { title, description, pubDate, updatedDate, heroImage },
-} = Astro.props;
+  const {
+    content: { title, description, pubDate, updatedDate, heroImage },
+  } = Astro.props;
 ---
 
 <Template title={title} description={description}>
@@ -22,11 +22,11 @@ const {
     <h1 class="text-2xl mt-4">{title}</h1>
     {pubDate && <time>{pubDate}</time>}
     {
-      updatedDate && (
-        <div>
-          Last updated on <time>{updatedDate}</time>
-        </div>
-      )
+    updatedDate && (
+    <div>
+      Last updated on <time>{updatedDate}</time>
+    </div>
+    )
     }
     <hr class="my-4 border" />
     <slot />

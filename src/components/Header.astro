@@ -1,25 +1,18 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { SITE_TITLE } from "../config";
+  import HeaderLink from "./HeaderLink.astro";
+  import { SITE_TITLE, SITE_DESCRIPTION } from "src/config";
+
+  const HeaderTag = Astro.url.pathname === '/' ? 'h1' : 'h2';
 ---
 
-<header>
-  <h2>
-    {SITE_TITLE}
-  </h2>
-  <nav>
-    <HeaderLink href="/">Home</HeaderLink>
-    <HeaderLink href="/blog">Blog</HeaderLink>
-    <HeaderLink href="/about">About</HeaderLink>
-    <HeaderLink href="https://twitter.com/astrodotbuild" target="_blank">Twitter</HeaderLink>
-    <HeaderLink href="https://github.com/withastro/astro" target="_blank">GitHub</HeaderLink>
-  </nav>
+<header class="flex flex-col gap-2 mb-4">
+  <div class="flex flex-wrap justify-between gap-4">
+    <HeaderTag>{SITE_TITLE}</HeaderTag>
+    <nav class="flex gap-4">
+      <HeaderLink active={ Astro.url.pathname==='/' } href="/">Home</HeaderLink>
+      <HeaderLink active={ Astro.url.pathname.includes('blog') } href="/blog">Blog</HeaderLink>
+      <HeaderLink active={ Astro.url.pathname==='/about' } href="/about">About</HeaderLink>
+    </nav>
+  </div>
+  <p class="text-xl mb-4">{SITE_DESCRIPTION}</p>
 </header>
-<style>
-  header {
-    margin: 0em 0 2em;
-  }
-  h2 {
-    margin: 0.5em 0;
-  }
-</style>
