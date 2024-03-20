@@ -1,25 +1,17 @@
 {
-  "name": "@example/blog",
+  "name": "",
+  "type": "module",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.11.1",
-    "@astrojs/rss": "^1.0.0",
-    "@astrojs/sitemap": "^1.0.0",
-    "@astrojs/tailwind": "^1.0.0",
-    "astro": "^1.2.1"
-  },
-  "devDependencies": {
-    "prettier": "^2.7.1"
-  },
-  "prettier": {
-    "printWidth": 120
+    "astro": "^4.5.7",
+    "@astrojs/check": "^0.5.9",
+    "typescript": "^5.4.2"
   }
 }
