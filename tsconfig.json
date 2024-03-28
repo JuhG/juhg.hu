@@ -1,7 +1,7 @@
 {
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
-    "baseUrl": "/Users/gabor.juhasz/code/juhg.hu",
+    "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"]
     },
