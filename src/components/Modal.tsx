@@ -23,7 +23,7 @@ export const Modal = () => {
 
       <div className="fixed inset-0 w-screen overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-4">
-          <Dialog.Panel className="mx-auto w-full max-w-xl rounded-md bg-white p-4">
+          <Dialog.Panel className="mx-auto w-full max-w-2xl rounded-md bg-white p-4">
             <button
               className="float-end mb-2 ms-2 rounded-lg bg-amber-600 p-2 leading-none text-white"
               onClick={() => modalOpen.set("none")}
@@ -40,7 +40,7 @@ export const Modal = () => {
             {$modalOpen === "tools" && (
               <>
                 <div dangerouslySetInnerHTML={{ __html: tools() }} />
-                <img src={bump.src} alt="Bump" />
+                <img src={bump.src} alt="Bump" className="mx-auto" />
               </>
             )}
             {$modalOpen === "thinking" && <div dangerouslySetInnerHTML={{ __html: thinking() }} />}
@@ -58,7 +58,7 @@ const History = () => {
         That's Tailwind in production in 2018. Version 0.7.3 and lots of <code>@apply</code>, but
         you have to start somewhere.
       </p>
-      <img src={history.src} alt="Tailwind in 2018" className="m-0 mt-4" />
+      <img src={history.src} alt="Tailwind in 2018" className="mx-auto w-[500px]" />
     </>
   );
 };

@@ -1,31 +1,36 @@
 import Layout from "~/layouts/Layout.astro";
 import { Demo } from "../components/Demo";
+import { Message } from "../components/Message";
 import "../styles/scroll-driven-animations.css";
 
 <Layout title="Scroll-driven animations">
 
-# Scroll-driven animations
+# Scroll-driven animations and Tailwind
 
 Welcome to my investigation on how to implement scroll-driven animations in Tailwind CSS.
 This will be a mix of an imaginary PR description and an introduction to the feature for someone who has heard of it, but not familiar with the API.
 
 In advance, this is such an amazing tool.
-Makes things possible that required a bunch of javascript in the past.
+It makes things possible with CSS that required a bunch of Javascript in the past.
 Not that writing JS is that bad.
 It's just you don't have to write the same thing over and over again.
 You let the browser do the heavy lifting.
-It's also way more performant.
+It's also _way_ more performant.
+
+<Message>
+  **Note**: this is not a production-ready technology yet. Support for now is limited to Chromium
+  based browsers.
+</Message>
 
 ## Use cases and syntax
 
 Let's look at a few common patterns - now with CSS only!
-
-There's a lot more possible with this, for example a CSS-only carousel.
+There's a lot more possible, for example a CSS-only carousel.
 I'll add links to cool examples.
 
 ### 1. Scroll progress
 
-I think this is the most common scroll indicator, a small line at the top to show how much there's left from the thing you're reading.
+I think this is the most common was to implement a scroll indicator, a small line at the top to show how much there's left from the thing you're reading.
 Not sure how useful this is, but it's common nonetheless.
 
 <Demo client:load>
@@ -48,7 +53,7 @@ To implement this we need some `@keyframes` defined:
 }
 ```
 
-And then those keyframes connected to the progress bar element:
+And then connect those keyframes to the progress bar element:
 
 ```css
 #el {
@@ -58,7 +63,7 @@ And then those keyframes connected to the progress bar element:
 ```
 
 This is the same `animation` property you can use to animate something on page load or hover.
-But now instead of setting the duration or iteration count, we specify the timeline in a separate property.
+But now instead of setting the duration or iteration count, we specify the timeline - in a separate property.
 The value is the `scroll()` function, it will tie the animation progress to the current scroll position.
 
 ### 2. Banner popping up
@@ -66,7 +71,7 @@ The value is the `scroll()` function, it will tie the animation progress to the 
 Scroll-to-top button or maybe something a bit more annoying like a subscribe form.
 We don't want to show them right away.
 But don't want to wait with fully showing them until the user scroll to the bottom.
-So we need more control.
+So we need more control - complete the animation by the time we scroll to the half.
 
 <Demo client:load>
   <div id="banner" className="absolute bottom-8 right-8 z-10 size-12 rounded bg-amber-600" />
@@ -118,7 +123,7 @@ To use it, there's another function called `view()`.
 
 ### 4. Parallax
 
-There's something spooky 🎃 going on with the last example here.
+Something spooky 🎃 is going on with the last example here.
 Let's see if you can figure it out!
 
 <Demo client:load>
@@ -131,7 +136,7 @@ That's right, there are two things changing independently.
 The scroll position works the same way as before.
 But the height of the block is tied to the main scrollbar of the whole page - not the small window.
 
-To customize the target we can either keep using the **anonymous** scroll progress timeline:
+To customize the target we can keep using the **anonymous** scroll progress timeline:
 
 ```css
 #el {
@@ -159,9 +164,10 @@ OR create a **named** scroll progress timeline:
 
 We specify the timeline name with `scroll-timeline` on the scrollable element.
 Then use that instead of the `scroll()` function.
+Same thing is possible with `view-timeline` instead of `view()` as well.
 
 With `timeline-scope` it's even possible to animate an element that's not descendant of the scroller.
-It's a significantly more complex syntax, but comes with a lot flexibility.
+It's a more complex syntax, but comes with a lot flexibility.
 Super cool.
 
 ## API in Tailwind
@@ -186,7 +192,7 @@ This is the absolute minimum you need for a scroll-driven animation.
 ```
 
 Tailwind already has animation related classes, they use the `animate-*` prefix, so let's stick to that.
-Let's add the timeline keyword to differentiate from
+Let's add the timeline keyword to differentiate from predefined animations.
 How about `animate-timeline-scroll` and `animate-timeline-view`?
 
 ```css
@@ -200,7 +206,7 @@ I vote for the latter.
 It should be fairly easy to combine them with CSS variables.
 
 So the last code block translates to `animate-timeline-view animate-timeline-root animate-timeline-inline`.
-This might seem long, but I think in a lot of cases we would use the defaults, so we don't need all three of them.
+This might seem long, but I think in a lot of cases we would use the defaults, so we rarely need all three of them.
 
 ### Range
 
@@ -242,14 +248,14 @@ With that we can recreate the "Banner popping up" example with Tailwind classes:
 </div>
 ```
 
-And maybe a couple more, but not too many overall.
+And maybe a couple more could work, but we can't cover everything.
 As mentioned before, we simply need more control to finetune an animation.
 
 #### Custom keyframes
 
 Looks like we need to get our hards dirty and open an actual CSS file.
-With Tailwind v4 moving the configuration, this is less of an issue.
-Using the new keyframes is working right now with the arbitrary value syntax.
+With Tailwind v4 moving towards raw CSS with configuration, this seems like less of an issue going forward.
+Applying the custom keyframes is possible even right now with the arbitrary value syntax.
 
 Let's recreate the "Scroll progress" example:
 
@@ -270,10 +276,10 @@ Let's recreate the "Scroll progress" example:
 
 That's it.
 Even though we're splitting logic between the markup and the CSS file, I'm personally ok with this.
-First of all the animation part was usually done in code and not inside the class attribute.
-Maybe it was less separated (in case of `framer-motion` for example), but separated nonetheless.
+First of all the animation part was usually done in code before and not inside the class attribute anyway.
+Probably still closer (in case of `framer-motion` for example), but separated nonetheless.
 
-The separation is pretty clear.
+The separation here is pretty clear.
 Add every detail about the animation to the keyframes and keep all the usual styling as classes.
 This approach also makes `animation-range` relatively useless, move that inside the keyframes too.
 
@@ -329,7 +335,7 @@ What do _you_ think?
 - [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll-driven_animations)
 - [Google](https://developer.chrome.com/docs/css-ui/scroll-driven-animations)
 - Cool examples
-  - https://scroll-driven-animations.style/
-  - https://tympanus.net/codrops/2024/01/24/experimental-css-only-carousels-with-scroll-driven-animations/
+  - [Scroll-driven Animations](https://scroll-driven-animations.style/)
+  - [CSS-only carousels](https://tympanus.net/codrops/2024/01/24/experimental-css-only-carousels-with-scroll-driven-animations/)
 
 </Layout>

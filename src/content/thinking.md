@@ -13,3 +13,6 @@ Outside of my (mostly trivial) personal projects all my professional work was cl
 Internally in my company I'm pretty active.
 Leading the conversations about technology and ideas, creating tools.
 Even gave a couple of talks, even if only to ~10 people. 🙂
+
+If you haven't, check out my article on
+<a href="/scroll-driven-animations">Scroll-driven animations and Tailwind</a>
