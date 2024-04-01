@@ -1,0 +1,97 @@
+/* source: https://stackoverflow.com/a/38994837/979486 */
+[data-component="scroller"] {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+[data-component="scroller"]::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+[data-component="root"] {
+  container-type: size;
+  timeline-scope: --scroll;
+}
+
+[data-component="scroller"] {
+  scroll-timeline: --scroll;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(calc(100cqh - 100%));
+  }
+}
+[data-component="scrollbar"] {
+  animation: scroll linear;
+  animation-timeline: --scroll;
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+#progress {
+  animation: progress linear;
+  animation-timeline: --scroll;
+}
+
+@keyframes banner {
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+#banner {
+  animation: banner linear;
+  animation-timeline: --scroll;
+}
+
+@keyframes intro {
+  from {
+    opacity: 0;
+    transform: translateY(-200px) scale(1.4);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+[data-intro="true"] [data-component="intro"] {
+  background: theme("colors.amber.600");
+  animation: intro;
+  animation-timeline: view();
+}
+
+@keyframes parallax {
+  from {
+    transform: translateY(calc(100cqh - 100%));
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+#parallax {
+  animation: parallax linear;
+  animation-timeline: --scroll;
+}
+@keyframes parallax-child {
+  30% {
+    height: 0;
+  }
+  50% {
+    height: 300px;
+  }
+}
+#parallax-child {
+  animation: parallax-child linear;
+  animation-timeline: scroll(root);
+}

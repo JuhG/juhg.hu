@@ -1,0 +1,72 @@
+import Layout from "~/layouts/Layout.astro";
+import jack from "~/images/jack-nicholson.jpg";
+import parallax from "~/images/parallax.jpg";
+import { Image } from "astro:assets";
+import "../styles/playground.css";
+
+<Layout title="Playground">
+
+<Image
+  src={parallax}
+  alt="Water"
+  id="parallax"
+  class="absolute left-0 right-0 top-0 -z-10 h-80 object-cover"
+/>
+<div class="mt-96" />
+
+# Playground
+
+<div id="bg" className="fixed inset-0 -z-20" />
+
+<div
+  id="popup"
+  className="fixed bottom-[50px] left-[50px] z-10 flex items-center justify-center rounded bg-green-600 px-6 text-white"
+>
+  Look ma, no JS!
+</div>
+<div
+  id="popup-2"
+  className="fixed bottom-[50px] right-[50px] z-10 flex items-center justify-center rounded bg-green-600 px-6 text-white"
+>
+  Look ma, no JS!
+</div>
+
+<div id="progress" className="fixed left-0 top-0 z-10 h-2 bg-green-600" />
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sollicitudin molestie laoreet. Donec turpis nulla, convallis iaculis ornare posuere, iaculis et ipsum. Etiam pretium non mauris nec vulputate. Proin ac pulvinar nunc. Mauris tortor enim, convallis ac mollis eu, pulvinar ut nisl. Aliquam id ante et lectus ultricies pharetra. Mauris porttitor viverra pharetra. Nullam quis elit urna. Aliquam quis semper purus.
+
+Vivamus vel dui a est porttitor hendrerit non at est. Curabitur elementum magna vel sem ultrices, a dignissim risus bibendum. Proin vel libero orci. Pellentesque vulputate tempor justo, ac luctus mauris commodo sit amet. Pellentesque porta luctus bibendum. Pellentesque sed turpis venenatis, congue augue id, convallis lectus. Vivamus efficitur lobortis faucibus.
+
+Donec vitae libero condimentum, congue nibh eu, porttitor ante. Aliquam tristique id purus eget finibus. Pellentesque lacinia arcu scelerisque erat finibus, vitae placerat leo dictum. Aenean quis condimentum augue, tincidunt ultricies erat. Cras rutrum metus quis posuere euismod. Nunc nec pulvinar lorem. Aenean pellentesque tempus sem. Maecenas interdum nisi ut dapibus sodales. Duis eget sem nec tellus porttitor venenatis et in elit. Donec sit amet mollis nunc. Maecenas nec convallis nulla. Nulla sit amet bibendum erat. Sed in lectus gravida, bibendum purus vel, ultricies enim. Nam pretium augue ipsum, et convallis mi consectetur quis. Curabitur diam turpis, pretium nec justo at, rhoncus pellentesque leo. Etiam sapien arcu, cursus vel odio tincidunt, hendrerit sollicitudin metus.
+
+Aenean in mi id lectus interdum mattis. Donec tempor vel urna pretium porttitor. Duis non nisi viverra, consequat justo ut, ultrices metus. Proin placerat eu massa vitae hendrerit. Maecenas ullamcorper sit amet arcu et semper. Aenean semper bibendum magna, eu consectetur lacus dictum vitae. Nam lacinia et massa vel viverra. Integer quis scelerisque nisi. Pellentesque eu ornare sem.
+
+Pellentesque ullamcorper scelerisque sollicitudin. Fusce vel erat urna. Vivamus ullamcorper elit dui,
+in vestibulum arcu rhoncus porta. Integer ac molestie mauris. Fusce dictum non tellus et dictum. Cras
+sit amet elit sollicitudin, euismod erat et, ultricies massa. Phasellus dignissim erat non egestas gravida.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sollicitudin molestie laoreet. Donec turpis nulla, convallis iaculis ornare posuere, iaculis et ipsum. Etiam pretium non mauris nec vulputate. Proin ac pulvinar nunc. Mauris tortor enim, convallis ac mollis eu, pulvinar ut nisl. Aliquam id ante et lectus ultricies pharetra. Mauris porttitor viverra pharetra. Nullam quis elit urna. Aliquam quis semper purus.
+
+<div id="surprise" className="">
+  <Image src={jack} alt="Jack Nicholson" />
+</div>
+
+Vivamus vel dui a est porttitor hendrerit non at est. Curabitur elementum magna vel sem ultrices, a dignissim risus bibendum. Proin vel libero orci. Pellentesque vulputate tempor justo, ac luctus mauris commodo sit amet. Pellentesque porta luctus bibendum. Pellentesque sed turpis venenatis, congue augue id, convallis lectus. Vivamus efficitur lobortis faucibus.
+
+Donec vitae libero condimentum, congue nibh eu, porttitor ante. Aliquam tristique id purus eget finibus. Pellentesque lacinia arcu scelerisque erat finibus, vitae placerat leo dictum. Aenean quis condimentum augue, tincidunt ultricies erat. Cras rutrum metus quis posuere euismod. Nunc nec pulvinar lorem. Aenean pellentesque tempus sem. Maecenas interdum nisi ut dapibus sodales. Duis eget sem nec tellus porttitor venenatis et in elit. Donec sit amet mollis nunc. Maecenas nec convallis nulla. Nulla sit amet bibendum erat. Sed in lectus gravida, bibendum purus vel, ultricies enim. Nam pretium augue ipsum, et convallis mi consectetur quis. Curabitur diam turpis, pretium nec justo at, rhoncus pellentesque leo. Etiam sapien arcu, cursus vel odio tincidunt, hendrerit sollicitudin metus.
+
+Aenean in mi id lectus interdum mattis. Donec tempor vel urna pretium porttitor. Duis non nisi viverra, consequat justo ut, ultrices metus. Proin placerat eu massa vitae hendrerit. Maecenas ullamcorper sit amet arcu et semper. Aenean semper bibendum magna, eu consectetur lacus dictum vitae. Nam lacinia et massa vel viverra. Integer quis scelerisque nisi. Pellentesque eu ornare sem.
+
+Pellentesque ullamcorper scelerisque sollicitudin. Fusce vel erat urna. Vivamus ullamcorper elit dui, in vestibulum arcu rhoncus porta. Integer ac molestie mauris. Fusce dictum non tellus et dictum. Cras sit amet elit sollicitudin, euismod erat et, ultricies massa. Phasellus dignissim erat non egestas gravida.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sollicitudin molestie laoreet. Donec turpis nulla, convallis iaculis ornare posuere, iaculis et ipsum. Etiam pretium non mauris nec vulputate. Proin ac pulvinar nunc. Mauris tortor enim, convallis ac mollis eu, pulvinar ut nisl. Aliquam id ante et lectus ultricies pharetra. Mauris porttitor viverra pharetra. Nullam quis elit urna. Aliquam quis semper purus.
+
+Vivamus vel dui a est porttitor hendrerit non at est. Curabitur elementum magna vel sem ultrices, a dignissim risus bibendum. Proin vel libero orci. Pellentesque vulputate tempor justo, ac luctus mauris commodo sit amet. Pellentesque porta luctus bibendum. Pellentesque sed turpis venenatis, congue augue id, convallis lectus. Vivamus efficitur lobortis faucibus.
+
+Donec vitae libero condimentum, congue nibh eu, porttitor ante. Aliquam tristique id purus eget finibus. Pellentesque lacinia arcu scelerisque erat finibus, vitae placerat leo dictum. Aenean quis condimentum augue, tincidunt ultricies erat. Cras rutrum metus quis posuere euismod. Nunc nec pulvinar lorem. Aenean pellentesque tempus sem. Maecenas interdum nisi ut dapibus sodales. Duis eget sem nec tellus porttitor venenatis et in elit. Donec sit amet mollis nunc. Maecenas nec convallis nulla. Nulla sit amet bibendum erat. Sed in lectus gravida, bibendum purus vel, ultricies enim. Nam pretium augue ipsum, et convallis mi consectetur quis. Curabitur diam turpis, pretium nec justo at, rhoncus pellentesque leo. Etiam sapien arcu, cursus vel odio tincidunt, hendrerit sollicitudin metus.
+
+Aenean in mi id lectus interdum mattis. Donec tempor vel urna pretium porttitor. Duis non nisi viverra, consequat justo ut, ultrices metus. Proin placerat eu massa vitae hendrerit. Maecenas ullamcorper sit amet arcu et semper. Aenean semper bibendum magna, eu consectetur lacus dictum vitae. Nam lacinia et massa vel viverra. Integer quis scelerisque nisi. Pellentesque eu ornare sem.
+
+Pellentesque ullamcorper scelerisque sollicitudin. Fusce vel erat urna. Vivamus ullamcorper elit dui, in vestibulum arcu rhoncus porta. Integer ac molestie mauris. Fusce dictum non tellus et dictum. Cras sit amet elit sollicitudin, euismod erat et, ultricies massa. Phasellus dignissim erat non egestas gravida.
+
+</Layout>
