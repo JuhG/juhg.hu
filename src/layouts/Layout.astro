@@ -15,8 +15,10 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#d97706" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://juhg.hu/seo.png" />
+    <meta property="og:title" content={title} />
+    <meta property="twitter:title" content={title} />
     <meta property="og:image" content="https://juhg.hu/seo.png" />
+    <meta name="twitter:image" content="https://juhg.hu/seo.png" />
     <title>{title}</title>
     <style>
       .prose {
