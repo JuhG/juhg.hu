@@ -1,17 +1,8 @@
-import type { FC, ReactNode } from "react";
-import { modalOpen, type ModalType } from "~/modalStore";
+import type { ComponentProps, FC } from "react";
 
-type ButtonProps = {
-  children: ReactNode;
-  modal: ModalType;
-};
-
-export const Button: FC<ButtonProps> = ({ children, modal }) => {
+export const Button: FC<ComponentProps<"button">> = ({ children, ...props }) => {
   return (
-    <button
-      onClick={() => modalOpen.set(modal)}
-      className="rounded-lg bg-amber-600 px-1.5 py-1 leading-none text-white"
-    >
+    <button className="rounded-lg bg-amber-600 px-1.5 py-1 leading-none text-white" {...props}>
       {children}
     </button>
   );
