@@ -1,7 +1,7 @@
 import Layout from "~/layouts/Layout.astro";
-import { Demo } from "../components/Demo";
-import { Message } from "../components/Message";
-import "../styles/scroll-driven-animations.css";
+import { Demo } from "~/components/Demo";
+import { Message } from "~/components/Message";
+import "~/styles/scroll-driven-animations.css";
 
 <Layout title="Scroll-driven animations">
 
@@ -18,8 +18,7 @@ You let the browser do the heavy lifting.
 It's also _way_ more performant.
 
 <Message>
-  **Note**: this is not a production-ready technology yet. Support for now is limited to Chromium
-  based browsers.
+  **Note**: this was written in 2024. Check current browser support before using these examples.
 </Message>
 
 ## Use cases and syntax
@@ -30,7 +29,7 @@ I'll add links to cool examples.
 
 ### 1. Scroll progress
 
-I think this is the most common was to implement a scroll indicator, a small line at the top to show how much there's left from the thing you're reading.
+I think this is the most common way to implement a scroll indicator, a small line at the top to show how much there's left from the thing you're reading.
 Not sure how useful this is, but it's common nonetheless.
 
 <Demo client:load>
