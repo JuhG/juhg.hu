@@ -1,5 +1,7 @@
 ---
 import { Footer } from "~/components/Footer";
+import Analytics from "@vercel/analytics/astro";
+import "~/styles/global.css";
 
 const { title, onePager } = Astro.props;
 ---
@@ -19,6 +21,7 @@ const { title, onePager } = Astro.props;
     <meta property="og:image" content="https://juhg.hu/seo.png" />
     <meta name="twitter:image" content="https://juhg.hu/seo.png" />
     <title>{title}</title>
+    <Analytics />
     <style is:global>
       body {
         background: #faf9f6;
